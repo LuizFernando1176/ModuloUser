@@ -1,10 +1,9 @@
 <?php
-function conecta(){
-    
-    return mysqli_connect('localhost', 'root', '', 'teste01');
-    
-}
 
+function conecta() {
+
+    return mysqli_connect('localhost', 'root', '', 'teste01');
+}
 
 /* 
  * To change this license header, choose License Headers in Project Properties.

@@ -1,4 +1,5 @@
 <?php
+
 include_once '../util/conectaBD.php';
 $id = $_GET['id'];
 $admin = $_GET['admin'];

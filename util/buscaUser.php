@@ -1,19 +1,36 @@
+
 <?php
 
-require_once 'conn.php';
-$search = $_GET['login'];
-$query = $conn->query("SELECT id, login from user WHERE `login` LIKE '%$search%'") or die(mysqli_connect_errno());
+// Database configuration
+$dbHost     = 'localhost';
+$dbUsername = 'root';
+$dbPassword = '';
+$dbName     = 'teste01';
 
-$list = array();
-$rows = $query->num_rows;
+// Connect with the database
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-if ($rows > 0) {
-    while ($fetch = $query->fetch_assoc()) {
-        $data['id'] = $fetch['login'];
+// Check connection
+if($db->connect_error){
+    die("Connection failed: " . $db->connect_error);
+} 
 
-        array_push($list, $data);
+// Get search term
+$searchTerm = $_GET['q'];
+
+// Get matched data from skills table
+$query = $db->query("SELECT id, login FROM user WHERE login LIKE '%".$searchTerm."%'  ORDER BY login ASC");
+
+// Generate skills data array
+$skillData = array();
+if($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+        $skillData[] = $row;
     }
+   
 }
 
-echo json_encode($list);
-?>
+
+
+// Return results as json encoded array
+echo json_encode($skillData);

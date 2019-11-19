@@ -27,24 +27,24 @@ $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
                         <!-- Tokeninput plugin library -->
                         <script src="js/jquery.tokeninput.js"></script>
                         <link rel="stylesheet" href="css/token-input.css" />
-                        <script>
+                        <script type="text/javascript">
         $(document).ready(function () {
-            $("#login").tokenInput("./util/buscaUser.php", {
+            $("#login").tokenInput("util/buscaUser.php", {
                 deleteText: "&times;",
                 minChars: 1,
-                propertyToSearch: "name",
+                propertyToSearch: "login",
                 hintText: "Procure o Usuario...",
                 noResultsText: "Usuario não encontrado.",
                 searchingText: "Procurando..."
             });
         });
                         </script>
-                        <nav class="navbar navbar-light bg-light">
-                            <form class="form-inline mt-2" >
-                                <input type="text" placeholder="Busca" aria-label="Search" name="login" id="login"> 
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                            </form>
-                        </nav></div>
+
+                        <form class="form-inline mt-2" >
+                            <input name="login" id="login"/>  
+                            <button class="btn btn-outline-success my-3  my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    </div>
                     <div class="card-body">
                         <table class="table-reponsive table table-borderless " >
                             <thead>
@@ -65,15 +65,15 @@ $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
                                         <td><?php echo $queryRespostas['login']; ?></td>
                                         <td><?php echo $queryRespostas['senha']; ?></td>
                                         <td class="admin" id="nivel<?php echo $queryRespostas['id'] ?>"><?php echo $queryRespostas['admin']; ?></td>
-                                        <td><label class="switch">
-                                                <input id="<?php echo $queryRespostas['id'] ?>" type="checkbox" onclick="alteraAdmin(this.id, this.checked)">
+                                        <td><label class="switch accordion">
+                                                <input class="toggleAdmin" id="<?php echo $queryRespostas['id'] ?>" type="checkbox" onclick="alteraAdmin(this.id, this.checked)">
                                                 <span class="slider"></span>
                                             </label></td>
                                         <td><label class="switch">
                                                 <input id="<?php echo $queryRespostas['id'] ?>" type="checkbox" onclick="alteraUser()(this.id, this.checked)"> 
                                                 <span class="slider2"></span>
                                             </label></td>
-                                        <td class="admin" id="nivel<?php echo $queryRespostas['id'] ?>"><?php echo $queryRespostas['excluido']; ?></td>
+                                        <td class="" id="nivel<?php echo $queryRespostas['id'] ?>"><?php echo $queryRespostas['excluido']; ?></td>
 
 
                                     </tr>
