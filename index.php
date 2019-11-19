@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $coon = mysqli_connect('localhost', 'root', '', 'teste01');
-$queryBuscaUsuario = "select * from user WHERE NOT EXCLUIDO";
+$queryBuscaUsuario = "select * from user ";
 $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
 ?>
 <html>
@@ -17,7 +17,7 @@ $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
     </head>
-    <body onload="mudaToggle();">
+    <body onload="mudaToggle();mudaToggleExcluido();">
         <div class="container">
             <div class="container-fluid">
                 <div class="card tamanhoCard mt-1 text-center">
@@ -70,10 +70,10 @@ $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
                                                 <span class="slider"></span>
                                             </label></td>
                                         <td><label class="switch">
-                                                <input id="<?php echo $queryRespostas['id'] ?>" type="checkbox" onclick="alteraUser()(this.id, this.checked)"> 
+                                                <input class="toggleExcluido" id="<?php echo $queryRespostas['id'] ?>" type="checkbox" onclick="Excluir(this.id, this.checked)"> 
                                                 <span class="slider2"></span>
                                             </label></td>
-                                        <td class="" id="nivel<?php echo $queryRespostas['id'] ?>"><?php echo $queryRespostas['excluido']; ?></td>
+                                        <td class="ex" id="excluido<?php echo $queryRespostas['id'] ?>"><?php echo $queryRespostas['excluido']; ?></td>
 
 
                                     </tr>
