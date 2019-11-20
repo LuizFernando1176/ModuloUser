@@ -62,3 +62,10 @@ function mudaToggleExcluido() {
         }
     }
 }
+// busca de usuarios
+$(document).ready(function () {
+    $("#search").autocomplete({
+        source: "util/search.php",
+        minLength: 0
+    });
+});
