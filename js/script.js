@@ -69,3 +69,7 @@ $(document).ready(function () {
         minLength: 0
     });
 });
+//busca tabela
+
+$('input#txt_consulta').quicksearch('table#tabela tbody tr');
+

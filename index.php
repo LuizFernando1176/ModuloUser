@@ -7,47 +7,39 @@ $queryResposta = mysqli_query($coon, $queryBuscaUsuario);
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Estilo do Site-->
-        <link rel="stylesheet" href="css/bootstrap.min.css" >
-        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <!--Scripts do site--> 
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script src="js/popper.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
+        <!--Estilo do Site-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+        <!--Scripts do site--> 
+
+        <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+        <script src="js/jquery.quicksearch.js" type="text/javascript"></script>
+        <script src="js/bootstrap.mins.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body onload="mudaToggle();mudaToggleExcluido();">
         <div class="container">
             <div class="container-fluid">
-                <div class="card tamanhoCard mt-1 text-center">
-                    <script type="text/javascript" src="js/script.js"></script>
+                <div class=" text-center">
                     <div class="card-header bg-primary text-white" style="font-family: 'Roboto', sans-serif;"><b>Edição de Usuário</b></div>
                     <div class="card-footer"> 
-                        <!-- Tokeninput plugin library -->
-                        <script src="js/jquery-ui.js"></script>
-                        <!--                        <link rel="stylesheet" href="css/token-input.css" />-->
-                        <script src="js/jquery.min"></script>
-                        <script src="js/jquery-ui.js"></script>
-                        <div class="container row">
-                            <form title="busca completa USE % " class="form-inline" method="post" action="">
-                                <div class="form-group mx-sm-2 mb-2">
-                                    <input class="form-control" id="search" type="text" name="login" placeholder="Usuario"/>
+                        <form  class="form" method="post" action="">
+                                <div class="form-group ">
+                                    <span class="input-group-addon"><i class="material-icons">search</i></span>
+                                    <input type="text" class="w25 input-search form-control" alt="lista-clientes" placeholder="Buscar nesta lista" />
+                                    
                                 </div>
-                                <button type="submit" class="btn btn-success mb-2">Busca</button>
+                            
+                                    <button class="btn btn-outline-info " ><label >Cadastra Usuário</label><i class="material-icons ">add</i></button>
+                                
                             </form>
-                            <div class="col-12 mx-sm-12 mb-2" style="float:right">
-                                <button type="button" class="btn btn-info">
-                                    <span class="fa"></span> Adicionar
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
                     <div class="card-body">
-                        <table class="table-reponsive table table-borderless " >
-                            <thead>
+                        <table class="table-reponsive table  lista-clientes"   >
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Nome</th>
                                     <th>Senha</th>
