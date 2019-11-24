@@ -1,5 +1,5 @@
 <?php
-	require_once 'conn.php';
+	require_once 'config.php';
 	
 	$search = $_GET['term'];
 	
